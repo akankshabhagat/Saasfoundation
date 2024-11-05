@@ -1,7 +1,7 @@
 import pathlib
 from django.shortcuts import render
-from django.http import HttpResponse
-
+# from django.http import HttpResponse
+from visits.models import PageVisit
 this_dir = pathlib.Path(__file__).resolve().parent
 
 
@@ -10,12 +10,18 @@ this_dir = pathlib.Path(__file__).resolve().parent
 
 
 def home_page_view(request, *args,**kwargs):
-   my_title="Home page"
+   qs=PageVisit.objects.all()
+   page_qs=PageVisit.objects.filter(path=request.path)
+
+   my_title="Hello akanksha its working"
    my_content={
       "page_title":my_title,
-         
+      "pagevisit_count":page_qs.count(),
+      "total_visit_count":qs.count(),
             }
+  
    html_template="home.html"
+   PageVisit.objects.create(path=request.path)
    return render(request,html_template,my_content)
 
 
