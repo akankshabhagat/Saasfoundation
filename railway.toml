@@ -1,0 +1,13 @@
+[project]
+name="saas-djangoapp"
+dockerfilePath='./src/Dockerfile'
+[env]
+DJANGO_SECRET_KEY = "django-insecure-0w%25v=nx#5-%t+m911u#4j@)ag5b8zdzt6&91r745349i48#x"
+DJANGO_DEBUG = "False"
+DJANGO_ALLOWED_HOSTS = "yourdomain.railway.app"
+DATABASE_URL = "{{ DATABASE_URL }}"
+
+# Services
+[[services]]
+name = "web"
+start = "gunicorn myapp.wsgi:application --bind 0.0.0.0:$PORT"
