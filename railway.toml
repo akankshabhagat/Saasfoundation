@@ -1,6 +1,6 @@
 [build]
 builder = "DOCKERFILE"
-dockerfilePath = "./Dockerfile"
+dockerfilePath = "D:\backend_learn\Django\Saasfoundation\src\Dockerfile"
 watchPatterns = [
     "requirements.txt",
     "src/**",
