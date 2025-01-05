@@ -2,7 +2,7 @@
 builder = "DOCKERFILE"
 dockerfilePath = "src/Dockerfile"
 watchPatterns = [
-    "requirements.txt",
+    "src/requirements.txt",
     "src/**",
     "railway.toml",
     "Dockerfile"
